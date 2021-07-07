@@ -1,0 +1,32 @@
+.total-group {
+  display: grid;
+  justify-content: center;
+  margin: 70px 0;
+  grid-template-columns: repeat(4, 244.6px);
+  column-gap: 17px;
+  row-gap: 27px;
+}
+.group {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 16.82px 15.29px;
+}
+
+.group > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.group > div {
+  width: 120px;
+}
+
+.group > img {
+  width: 65.74px;
+  height: 65.74px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+  margin-right: 19px;
+}
