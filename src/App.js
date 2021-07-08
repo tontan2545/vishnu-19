@@ -1,10 +1,31 @@
 import "./App.css";
 import "./components/TitleSearch";
+import React, { useState } from "react";
 import TitleSearch from "./components/TitleSearch";
 import TotalGroup from "./components/TotalGroup";
 import groupList from "./group-list";
 
 function App() {
+  const [findName, setFindName] = useState("");
+  const getName = (name) => {
+    console.log(name);
+    setFindName(name);
+  };
+  const firstName = findName.split(" ")[0];
+  const lastName = findName.split(" ")[1];
+  const searchGroup = groupList.filter((group) => {
+    for (var name of group.content) {
+      if (
+        findName.split(" ").length === 2 &&
+        firstName === name.name &&
+        lastName === name.surname
+      ) {
+        return true;
+      }
+    }
+    return false;
+  });
+  if (searchGroup.length > 0) console.log(searchGroup[0].name);
   const groupImage = {
     ทะเลหรือเขาเธอก็ไม่เลือกเราอยู่ดี: "ทะเล",
     "ทะจริง ๆ ว่าใจเธอเปลี่ยนไปหรือเปล่า": "ทะจริง",
@@ -27,7 +48,7 @@ function App() {
   };
   return (
     <div>
-      <TitleSearch />
+      <TitleSearch findName={findName} getName={getName} />
       <TotalGroup groupImage={groupImage} groupList={groupList} />
       <div className="footer">VISHNU 19 online camp</div>
     </div>
