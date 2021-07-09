@@ -1,0 +1,60 @@
+.found-group {
+  margin: 70px 358px;
+  background: #ffffff;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 35px;
+  padding: 40px 52px;
+}
+
+.found-group__head > * {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.found-group__head > div {
+  position: relative;
+  top: -40px;
+}
+
+.found-group__head > img {
+  width: 160px;
+  height: auto;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.found-group__name_header {
+  display: grid;
+  color: #888888;
+  font-weight: 300;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+  padding: 10px 20px;
+  border-bottom: #888888 0.5px solid;
+}
+
+.found-group__name {
+  display: grid;
+  margin-top: 10px;
+  padding-right: 20px;
+  grid-template-columns: 20px 1.5fr 1.5fr 1fr;
+}
+
+.dot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dot > div {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #888888;
+}
+
+.found-group__name > div {
+  font-size: 14px;
+  font-weight: 300;
+}

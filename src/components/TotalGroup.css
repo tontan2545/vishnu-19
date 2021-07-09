@@ -17,6 +17,7 @@
   padding: 0px 16.28px;
   animation-name: fadeInBottom;
   animation-duration: 500ms;
+  animation-delay: calc(var(--order) * 50ms);
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
