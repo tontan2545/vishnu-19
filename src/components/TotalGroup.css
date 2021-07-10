@@ -6,7 +6,9 @@
   column-gap: 17px;
   row-gap: 27px;
 }
+
 .group {
+  opacity: 0;
   display: flex;
   align-items: center;
   height: 95.5px;
@@ -19,6 +21,11 @@
   animation-duration: 500ms;
   animation-delay: calc(var(--order) * 50ms);
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+}
+
+.group:hover {
+  background-color: #888888;
 }
 
 .group > * {

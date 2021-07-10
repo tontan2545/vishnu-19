@@ -6,7 +6,11 @@ function TotalGroup(props) {
     <div className="total-group">
       {props.groupList.map((group, index) => {
         return (
-          <div className="group" style={{ "--order": index }} key={group.name}>
+          <div
+            className="group"
+            style={{ "--order": index + 1 }}
+            key={group.name}
+          >
             <img src={imgList[index]} alt="group" />
             <div>{group.name}</div>
           </div>

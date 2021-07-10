@@ -13,9 +13,19 @@ function TitleSearch(props) {
     props.getName(nameController);
     setNameController("");
   }
+
+  function onLogoClick() {
+    setNameController("");
+    props.getName(nameController);
+  }
   return (
     <div className="title">
-      <img className="title-image" src="vishnu.png" alt="vishnu logo" />
+      <img
+        className="title-image"
+        src="vishnu.png"
+        alt="vishnu logo"
+        onClick={onLogoClick}
+      />
       <form onSubmit={submitHandler}>
         <input
           className="title-input"
