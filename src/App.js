@@ -1,47 +1,79 @@
 import "./App.css";
 import "./components/TitleSearch";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TitleSearch from "./components/TitleSearch";
 import TotalGroup from "./components/TotalGroup";
 import FoundGroup from "./components/FoundGroup";
 import Footer from "./components/Footer";
-import groupList from "./group-list";
+import firebase from "./util/firebase";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [findName, setFindName] = useState("");
+  const [groupList, setGroupList] = useState([]);
+  var [selectedGroupIndex, setSelectedGroupIndex] = useState(-1);
   const getName = (name) => {
     console.log(name);
     setFindName(name);
   };
-  var imgIndex = 0;
-  const searchGroup = groupList.filter((group, index) => {
-    for (var name of group.content) {
+  for (var i = 0; i < groupList.length; i++) {
+    for (var name of groupList[i].content) {
       if (
         findName.split(" ").length === 2 &&
         findName.split(" ")[0].trim() === name.name &&
         findName.split(" ")[1].trim() === name.surname
       ) {
-        imgIndex = index;
-        return true;
+        selectedGroupIndex = i;
       }
     }
-    return false;
-  });
-  if (searchGroup.length > 0) console.log(searchGroup[0].name);
+  }
+  useEffect(() => {
+    firebase
+      .database()
+      .ref()
+      .once("value", (snap) => {
+        setGroupList(snap.val());
+      });
+  }, []);
+  const NoMatch = () => {
+    return <div>No match</div>;
+  };
   return (
-    <div>
-      <TitleSearch findName={findName} getName={getName} />
-      {searchGroup.length > 0 ? (
-        <FoundGroup
-          foundGroup={searchGroup[0]}
-          imgIndex={imgIndex}
-          findName={findName}
-        />
-      ) : (
-        <TotalGroup groupList={groupList} />
-      )}
+    <Router>
+      <TitleSearch
+        findName={findName}
+        getName={getName}
+        setSelectedGroupIndex={setSelectedGroupIndex}
+      />
+      <Switch>
+        <Route path="/search">
+          {selectedGroupIndex > -1 && (
+            <FoundGroup
+              foundGroup={groupList[selectedGroupIndex]}
+              imgIndex={selectedGroupIndex}
+              findName={findName}
+            />
+          )}
+        </Route>
+        <Route path="/group">
+          {selectedGroupIndex > -1 && (
+            <FoundGroup
+              foundGroup={groupList[selectedGroupIndex]}
+              imgIndex={selectedGroupIndex}
+              findName={findName}
+            />
+          )}
+        </Route>
+        <Route exact path="/">
+          <TotalGroup
+            groupList={groupList}
+            setSelectedGroupIndex={setSelectedGroupIndex}
+          />
+        </Route>
+        <Route component={NoMatch} />
+      </Switch>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

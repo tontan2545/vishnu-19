@@ -11,8 +11,8 @@ function Footer() {
         </div>
       </div>
       <div className="contact_credit">
-        <div>
-          <div className="contact__title">contact</div>
+        <div className="container">
+          <div className="contact__title footer_details_title">contact</div>
           <div className="contact">
             <div>
               <div>แบม #2</div>
@@ -26,8 +26,8 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div>
-          <div className="credit__title">credit</div>
+        <div className="container">
+          <div className="credit__title footer_details_title">credit</div>
           <div className="credit">
             <div>นนทพัฒน์ แก้วอัมพร #2</div>
             <div>พาวรรธน์ สงเคราะห์พานิช #2</div>

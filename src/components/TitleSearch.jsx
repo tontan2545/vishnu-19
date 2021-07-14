@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./TitleSearch.css";
+import { Link, useHistory } from "react-router-dom";
+import VishnuLogo from "../assets/vishnu.png";
 
 function TitleSearch(props) {
   const [nameController, setNameController] = useState(props.findName);
+  const history = useHistory();
 
   function onNameChange(event) {
     setNameController(event.target.value);
@@ -12,20 +15,21 @@ function TitleSearch(props) {
     event.preventDefault();
     props.getName(nameController);
     setNameController("");
+    history.push(`/search/${nameController}`);
   }
 
-  function onLogoClick() {
-    setNameController("");
-    props.getName(nameController);
-  }
   return (
     <div className="title">
-      <img
-        className="title-image"
-        src="vishnu.png"
-        alt="vishnu logo"
-        onClick={onLogoClick}
-      />
+      <Link
+        to="/"
+        onClick={() => {
+          props.getName("");
+          props.setSelectedGroupIndex(-1);
+          setNameController("");
+        }}
+      >
+        <img className="title-image" src={VishnuLogo} alt="vishnu logo" />
+      </Link>
       <form onSubmit={submitHandler}>
         <input
           className="title-input"
@@ -33,7 +37,7 @@ function TitleSearch(props) {
           placeholder="ชื่อจริงและนามสกุล"
           value={nameController}
           onChange={onNameChange}
-        ></input>
+        />
       </form>
     </div>
   );

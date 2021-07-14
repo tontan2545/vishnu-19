@@ -1,9 +1,13 @@
 .found-group {
-  margin: 70px 358px;
+  margin: 70px 25vw;
   background: #ffffff;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   border-radius: 35px;
   padding: 40px 52px;
+  animation-name: Founded_fadeInBottom;
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
 }
 
 .found-group__head > * {
@@ -29,7 +33,7 @@
   display: grid;
   color: #888888;
   font-weight: 300;
-  grid-template-columns: 1.5fr 1.5fr 1fr;
+  grid-template-columns: 0.3fr 1.4fr 1.3fr 1fr;
   padding: 10px 20px;
   border-bottom: #888888 0.5px solid;
 }
@@ -38,7 +42,11 @@
   display: grid;
   margin-top: 10px;
   padding-right: 20px;
-  grid-template-columns: 20px 1.5fr 1.5fr 1fr;
+  grid-template-columns: 20px 0.15fr 0.15fr 1.4fr 1.3fr 1fr;
+}
+
+#index #no {
+  text-align: center;
 }
 
 .dot {
@@ -48,13 +56,85 @@
 }
 
 .dot > div {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: #888888;
+  background-color: #ffcf52;
 }
 
 .found-group__name > div {
   font-size: 14px;
   font-weight: 300;
+}
+
+@keyframes Founded_fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(2%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .found-group {
+    margin: 30px 10vw;
+  }
+}
+
+@media (max-width: 736px) {
+  .found-group__head > div {
+    top: -20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .found-group {
+    padding: 25px 30px;
+  }
+  .found-group__head > img {
+    width: 120px;
+    height: auto;
+  }
+  .found-group__head > div {
+    top: -20px;
+    margin-bottom: 0;
+    width: 90%;
+  }
+  .found-group__name_header {
+    font-size: 10px;
+  }
+  .found-group__name_header {
+    padding: 10px 8px;
+  }
+  .found-group__name {
+    padding-right: 8px;
+    grid-template-columns: 8px 0.15fr 0.15fr 1.4fr 1.3fr 1fr;
+  }
+  .found-group__name > div {
+    font-size: 10px;
+    word-wrap: break-word;
+  }
+  .dot > div {
+    width: 5px;
+    height: 5px;
+  }
+
+  @media (max-width: 375px) {
+    .found-group {
+      padding: 15px 15px;
+      border-radius: 25px;
+    }
+    .found-group__name {
+      padding-right: 8px;
+      grid-template-columns: 8px 0.15fr 0.15fr 1fr 1fr 1fr;
+    }
+    .found-group__name_header {
+      font-size: 8px;
+    }
+    .found-group__name > div {
+      font-size: 8px;
+    }
+  }
 }
