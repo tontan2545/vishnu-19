@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site":"vishnu-19-list",
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,5 +1,5 @@
 .found-group {
-  margin: 70px 25vw;
+  margin: 30px 15vw;
   background: #ffffff;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   border-radius: 35px;
@@ -74,12 +74,6 @@
   }
   to {
     opacity: 1;
-  }
-}
-
-@media (max-width: 1024px) {
-  .found-group {
-    margin: 30px 10vw;
   }
 }
 

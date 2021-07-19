@@ -5,6 +5,7 @@ import TitleSearch from "./components/TitleSearch";
 import TotalGroup from "./components/TotalGroup";
 import FoundGroup from "./components/FoundGroup";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 import firebase from "./util/firebase";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -54,6 +55,7 @@ function App() {
               findName={findName}
             />
           )}
+          {selectedGroupIndex < 0 && <NotFound />}
         </Route>
         <Route path="/group">
           {selectedGroupIndex > -1 && (

@@ -13,6 +13,7 @@ function TitleSearch(props) {
 
   function submitHandler(event) {
     event.preventDefault();
+    props.setSelectedGroupIndex(-1);
     props.getName(nameController);
     setNameController("");
     history.push(`/search/${nameController}`);
