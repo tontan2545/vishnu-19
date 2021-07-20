@@ -30,8 +30,8 @@ function Footer() {
           <div className="credit__title footer_details_title">credit</div>
           <div className="credit">
             <div>นนทพัฒน์ แก้วอัมพร #2</div>
-            <div>พาวรรธน์ สงเคราะห์พานิช #2</div>
             <div>ธชา ธนารักษ์โชค #2</div>
+            <div>พาวรรธน์ สงเคราะห์พานิช #2</div>
           </div>
         </div>
       </div>
