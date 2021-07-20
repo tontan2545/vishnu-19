@@ -16,11 +16,7 @@ function FoundGroup(props) {
       </div>
       <div className="found-group__name_list">
         {props.foundGroup.content.map((name, index) => {
-          var className =
-            props.findName.split(" ")[0].trim() === name.name &&
-            props.findName.split(" ")[1].trim() === name.surname
-              ? "dot"
-              : "";
+          var className = props.findID === name.id ? "dot" : "";
           return (
             <div
               className="found-group__name"

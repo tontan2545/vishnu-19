@@ -10,20 +10,16 @@ import firebase from "./util/firebase";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [findName, setFindName] = useState("");
+  const [findID, setID] = useState("");
   const [groupList, setGroupList] = useState([]);
   var [selectedGroupIndex, setSelectedGroupIndex] = useState(-1);
-  const getName = (name) => {
-    console.log(name);
-    setFindName(name);
+  const getID = (id) => {
+    console.log(id);
+    setID(id);
   };
   for (var i = 0; i < groupList.length; i++) {
     for (var name of groupList[i].content) {
-      if (
-        findName.split(" ").length === 2 &&
-        findName.split(" ")[0].trim() === name.name &&
-        findName.split(" ")[1].trim() === name.surname
-      ) {
+      if (findID === name.id) {
         selectedGroupIndex = i;
       }
     }
@@ -42,8 +38,8 @@ function App() {
   return (
     <Router>
       <TitleSearch
-        findName={findName}
-        getName={getName}
+        findID={findID}
+        getID={getID}
         setSelectedGroupIndex={setSelectedGroupIndex}
       />
       <Switch>
@@ -52,7 +48,7 @@ function App() {
             <FoundGroup
               foundGroup={groupList[selectedGroupIndex]}
               imgIndex={selectedGroupIndex}
-              findName={findName}
+              findID={findID}
             />
           )}
           {selectedGroupIndex < 0 && <NotFound />}
@@ -62,7 +58,7 @@ function App() {
             <FoundGroup
               foundGroup={groupList[selectedGroupIndex]}
               imgIndex={selectedGroupIndex}
-              findName={findName}
+              findID={findID}
             />
           )}
         </Route>

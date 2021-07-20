@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import "./TitleSearch.css";
 import { Link, useHistory } from "react-router-dom";
-import VishnuLogo from "../assets/vishnu.png";
+import VishnuLogo from "../assets/vishnu.svg";
 
 function TitleSearch(props) {
-  const [nameController, setNameController] = useState(props.findName);
+  const [IDController, setIDController] = useState(props.findID);
   const history = useHistory();
 
-  function onNameChange(event) {
-    setNameController(event.target.value);
+  function onIDChange(event) {
+    setIDController(event.target.value);
   }
 
   function submitHandler(event) {
     event.preventDefault();
     props.setSelectedGroupIndex(-1);
-    props.getName(nameController);
-    setNameController("");
-    history.push(`/search/${nameController}`);
+    props.getID(IDController.trim());
+    setIDController("");
+    history.push(`/search/${setIDController}`);
   }
 
   return (
@@ -24,9 +24,9 @@ function TitleSearch(props) {
       <Link
         to="/"
         onClick={() => {
-          props.getName("");
+          props.getID("");
           props.setSelectedGroupIndex(-1);
-          setNameController("");
+          setIDController("");
         }}
       >
         <img className="title-image" src={VishnuLogo} alt="vishnu logo" />
@@ -35,9 +35,9 @@ function TitleSearch(props) {
         <input
           className="title-input"
           type="text"
-          placeholder="ชื่อจริงและนามสกุล"
-          value={nameController}
-          onChange={onNameChange}
+          placeholder="รหัสนิสิต 10 หลัก"
+          value={IDController}
+          onChange={onIDChange}
         />
       </form>
     </div>
