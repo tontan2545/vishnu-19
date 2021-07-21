@@ -78,6 +78,9 @@
 }
 
 @media (max-width: 736px) {
+  .found-group {
+    margin: 30px 7vw;
+  }
   .found-group__head > div {
     top: -20px;
   }
